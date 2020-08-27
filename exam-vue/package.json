@@ -1,8 +1,8 @@
 {
   "name": "exam-vue",
   "version": "4.2.1",
-  "description": "云帆考试系统",
-  "author": "18365918@qq.com",
+  "description": "考试系统",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",

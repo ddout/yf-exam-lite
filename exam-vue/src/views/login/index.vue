@@ -10,7 +10,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">云帆考试系统</h3>
+        <h3 class="title">考试系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -77,7 +77,7 @@
 
       <div style="position:relative;">
 
-        <el-row :gutter="10" style="padding-top: 20px">
+        <!-- <el-row :gutter="10" style="padding-top: 20px">
 
           <div style="border-bottom: #394352 1px solid"></div>
 
@@ -94,7 +94,7 @@
           </el-col>
 
 
-        </el-row>
+        </el-row> -->
 
       </div>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard-container">
-    <img src="@/assets/system.png" style="width: 70%;height: auto">
+  <div class="dashboard-container" style="text-align: center;">
+    <img src="@/assets/haoyun.jpg" style="width: 50%;height: 400px;margin:0 auto;">
   </div>
 </template>
 

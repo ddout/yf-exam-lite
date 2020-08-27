@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      title: '云帆考试系统',
+      title: '考试系统',
       logo: false
     }
   }

@@ -29,6 +29,12 @@
       </el-table-column>
 
       <el-table-column
+        label="考生姓名"
+        align="center"
+        prop="realName"
+      />
+
+      <el-table-column
         label="考试时间"
         align="center"
         prop="createTime"
