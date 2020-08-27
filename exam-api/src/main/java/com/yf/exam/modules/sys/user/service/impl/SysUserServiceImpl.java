@@ -139,7 +139,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
            SysUser user = this.getById(reqDTO.getId());
 
            if(user.getUserName().equals(ADMIN_ACCOUNT) || user.getUserName().equals(STUDENT_ACCOUNT)){
-               throw new ServiceException(ApiError.ERROR_90010004);
+               // throw new ServiceException(ApiError.ERROR_90010004);
            }
 
            user.setPassword(passInfo.getPassword());
@@ -163,7 +163,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         BeanMapper.copy(reqDTO, user);
 
         if(user.getUserName().equals(ADMIN_ACCOUNT) || user.getUserName().equals(STUDENT_ACCOUNT)){
-            throw new ServiceException(ApiError.ERROR_90010004);
+            // throw new ServiceException(ApiError.ERROR_90010004);
         }
 
 
