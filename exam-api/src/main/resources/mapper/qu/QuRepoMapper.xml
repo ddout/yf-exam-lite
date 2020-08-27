@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yf.exam.modules.qu.mapper.QuRepoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yf.exam.modules.qu.entity.QuRepo">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="title" property="title" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`code`,`title`,`remark`,`create_time`,`update_time`
+    </sql>
+
+
+    <resultMap id="ListResultMap"
+               type="com.yf.exam.modules.qu.dto.response.QuRepoRespDTO"
+               extends="BaseResultMap">
+
+        <result column="saq_count" property="saqCount" />
+        <result column="multi_count" property="multiCount" />
+        <result column="radio_count" property="radioCount" />
+        <result column="judge_count" property="judgeCount" />
+
+    </resultMap>
+
+    <select id="paging" resultMap="ListResultMap">
+
+        SELECT repo.*,
+        (SELECT COUNT(0) FROM el_qu_repo_ref ref WHERE ref.repo_id=repo.id AND qu_type=1) as radio_count,
+        (SELECT COUNT(0) FROM el_qu_repo_ref ref WHERE ref.repo_id=repo.id AND qu_type=2) as multi_count,
+        (SELECT COUNT(0) FROM el_qu_repo_ref ref WHERE ref.repo_id=repo.id AND qu_type=3) as judge_count,
+        (SELECT COUNT(0) FROM el_qu_repo_ref ref WHERE ref.repo_id=repo.id AND qu_type=4) as saq_count
+         FROM el_qu_repo repo
+
+        <where>
+            <if test="query!=null">
+                <if test="query.title!=null and query.title!=''">
+                    AND repo.title LIKE '%${query.title}%'
+                </if>
+            </if>
+        </where>
+
+
+    </select>
+
+</mapper>

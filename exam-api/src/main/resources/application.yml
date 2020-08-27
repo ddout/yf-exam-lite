@@ -1,0 +1,25 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: yf-exam
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bool-exam?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+  # Redis配置
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 5000
+
+# 日志级别
+logging:
+  level:
+    root: debug
