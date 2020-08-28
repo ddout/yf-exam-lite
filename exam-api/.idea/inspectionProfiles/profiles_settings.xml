@@ -1,0 +1,12 @@
+<component name="InspectionProjectProfileManager">
+  <settings>
+    <info color="ffe360">
+      <option name="FOREGROUND" value="0" />
+      <option name="BACKGROUND" value="ffe360" />
+      <option name="ERROR_STRIPE_COLOR" value="ffe360" />
+      <option name="myName" value="Code Format" />
+      <option name="myVal" value="350" />
+      <option name="myExternalName" value="WARNING_ATTRIBUTES" />
+    </info>
+  </settings>
+</component>

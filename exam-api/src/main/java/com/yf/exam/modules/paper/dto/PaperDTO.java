@@ -28,6 +28,9 @@ public class PaperDTO implements Serializable {
     @ApiModelProperty(value = "用户ID", required=true)
     private String userId;
 
+    @ApiModelProperty(value = "用户姓名", required=true)
+    private String userName;
+
     @ApiModelProperty(value = "规则ID", required=true)
     private String examId;
 
@@ -66,5 +69,5 @@ public class PaperDTO implements Serializable {
 
     @ApiModelProperty(value = "更新时间", required=true)
     private Date updateTime;
-    
+
 }

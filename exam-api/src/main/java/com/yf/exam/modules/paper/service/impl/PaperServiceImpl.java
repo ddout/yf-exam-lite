@@ -22,6 +22,7 @@ import com.yf.exam.modules.paper.entity.Paper;
 import com.yf.exam.modules.paper.entity.PaperQu;
 import com.yf.exam.modules.paper.entity.PaperQuAnswer;
 import com.yf.exam.modules.paper.entity.PaperRule;
+import com.yf.exam.modules.paper.entity.PaperV;
 import com.yf.exam.modules.paper.enums.PaperState;
 import com.yf.exam.modules.paper.mapper.PaperMapper;
 import com.yf.exam.modules.paper.service.PaperQuAnswerService;
@@ -29,6 +30,7 @@ import com.yf.exam.modules.paper.service.PaperQuService;
 import com.yf.exam.modules.paper.service.PaperRuleRepoService;
 import com.yf.exam.modules.paper.service.PaperRuleService;
 import com.yf.exam.modules.paper.service.PaperService;
+import com.yf.exam.modules.paper.service.PaperVService;
 import com.yf.exam.modules.qu.entity.Qu;
 import com.yf.exam.modules.qu.entity.QuAnswer;
 import com.yf.exam.modules.qu.enums.QuType;
@@ -79,6 +81,8 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, Paper> implements
 
     @Autowired
     private PaperService paperService;
+    @Autowired
+    private PaperVService paperVService;
 
     @Autowired
     private PaperQuService paperQuService;
@@ -163,7 +167,7 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, Paper> implements
         ExamResultRespDTO respDTO = new ExamResultRespDTO();
 
         // 试题基本信息
-        Paper paper = paperService.getById(paperId);
+        PaperV paper = paperVService.getById(paperId);
         BeanMapper.copy(paper, respDTO);
 
         List<PaperQuDetailDTO> quList = paperQuService.listForPaperResult(paperId);
