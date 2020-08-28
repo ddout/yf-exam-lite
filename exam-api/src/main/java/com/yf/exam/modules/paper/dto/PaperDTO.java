@@ -1,5 +1,6 @@
 package com.yf.exam.modules.paper.dto;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,8 +29,11 @@ public class PaperDTO implements Serializable {
     @ApiModelProperty(value = "用户ID", required=true)
     private String userId;
 
-    @ApiModelProperty(value = "用户姓名", required=true)
+    @ApiModelProperty(value = "用户账号", required=false)
     private String userName;
+
+    @ApiModelProperty(value = "用户姓名", required=false)
+    private String realName;
 
     @ApiModelProperty(value = "规则ID", required=true)
     private String examId;
