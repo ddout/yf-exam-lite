@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yf.exam.modules.paper.mapper.PaperRuleRepoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yf.exam.modules.paper.entity.PaperRuleRepo">
+        <id column="id" property="id" />
+        <result column="rule_id" property="ruleId" />
+        <result column="repo_id" property="repoId" />
+        <result column="radio_count" property="radioCount" />
+        <result column="radio_score" property="radioScore" />
+        <result column="multi_count" property="multiCount" />
+        <result column="multi_score" property="multiScore" />
+        <result column="judge_count" property="judgeCount" />
+        <result column="judge_score" property="judgeScore" />
+        <result column="saq_count" property="saqCount" />
+        <result column="saq_score" property="saqScore" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`rule_id`,`repo_id`,`radio_count`,`radio_score`,`multi_count`,`multi_score`,`judge_count`,`judge_score`,`saq_count`,`saq_score`
+    </sql>
+
+</mapper>

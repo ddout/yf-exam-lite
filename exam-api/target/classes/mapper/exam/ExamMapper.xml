@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yf.exam.modules.exam.mapper.ExamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yf.exam.modules.exam.entity.Exam">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="open" property="open" />
+        <result column="password" property="password" />
+        <result column="state" property="state" />
+        <result column="rule_id" property="ruleId" />
+        <result column="time_limit" property="timeLimit" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="subj_score" property="subjScore" />
+        <result column="obj_score" property="objScore" />
+        <result column="total_score" property="totalScore" />
+        <result column="total_time" property="totalTime" />
+        <result column="qualify_score" property="qualifyScore" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`title`,`content`,`open`,`password`,`state`,`rule_id`,`time_limit`,`start_time`,`end_time`,`create_time`,`update_time`,`subj_score`,`obj_score`,`total_score`,`total_time`,`qualify_score`
+    </sql>
+
+    <resultMap id="ListResultMap"
+               type="com.yf.exam.modules.exam.dto.response.ExamRespDTO"
+               extends="BaseResultMap">
+        <result column="examUser" property="examUser" />
+        <result column="unreadPaper" property="unreadPaper" />
+    </resultMap>
+
+    <select id="paging" resultMap="ListResultMap">
+        SELECT a.*,
+        (SELECT COUNT(DISTINCT user_id) FROM el_paper WHERE exam_id=a.id) as examUser,
+        (SELECT COUNT(0) FROM el_paper WHERE exam_id=a.id AND state=1) as unreadPaper
+        FROM el_exam a
+    </select>
+
+</mapper>

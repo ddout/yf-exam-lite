@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yf.exam.modules.sys.config.mapper.SysConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yf.exam.modules.sys.config.entity.SysConfig">
+        <id column="id" property="id" />
+        <result column="prepare" property="prepare" />
+        <result column="rest_start" property="restStart" />
+        <result column="rest_end" property="restEnd" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`prepare`,`rest_start`,`rest_end`
+    </sql>
+
+</mapper>
