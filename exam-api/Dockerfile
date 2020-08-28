@@ -22,5 +22,5 @@ WORKDIR $APP_HOME
 ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
 
 
-# docker build -t docker.aiaudit.com.cn/exam/exam-api:v1.0.0-001 
-# docker push docker.aiaudit.com.cn/exam/exam-api:v1.0.0-001
+# docker build -t docker.aiaudit.com.cn/exam/exam-api:v1.0.0.002 .
+# docker push docker.aiaudit.com.cn/exam/exam-api:v1.0.0.002
