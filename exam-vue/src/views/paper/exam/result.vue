@@ -7,7 +7,7 @@
     <el-row :gutter="24" style="margin-top: 50px">
 
       <el-col :span="8" class="text-center">
-        考生姓名：张三
+        考生姓名：{{paperData.realName}} ({{paperData.userName}})
       </el-col>
 
       <el-col :span="8" class="text-center">

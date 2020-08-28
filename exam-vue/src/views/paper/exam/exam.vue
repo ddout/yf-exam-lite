@@ -7,7 +7,7 @@
       <el-col :span="24">
         <el-card style="margin-bottom: 10px">
 
-          距离考试结束还有：<span style="color: #ff0000;">{{ min }}分钟{{ sec }}秒</span>
+          距结束还有：<span style="color: #ff0000;">{{ min }}分钟{{ sec }}秒</span>
           <el-button style="float: right; margin-top: -10px" type="primary" icon="el-icon-plus" :loading="loading" @click="handHandExam()">
             {{ handleText }}
           </el-button>
@@ -93,6 +93,18 @@
 
         </div>
 
+      </el-col>
+
+
+      <el-col :span="24">
+        <el-card style="margin-top: 10px; margin-bottom: 10px">
+
+          距结束还有：<span style="color: #ff0000;">{{ min }}分钟{{ sec }}秒</span>
+          <el-button  v-if="!showNext" style="float: right; margin-top: -10px" type="primary" icon="el-icon-plus" :loading="loading" @click="handHandExam()">
+            {{ handleText }}
+          </el-button>
+
+        </el-card>
       </el-col>
 
     </el-row>
