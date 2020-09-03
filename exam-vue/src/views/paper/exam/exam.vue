@@ -95,12 +95,11 @@
 
       </el-col>
 
-
       <el-col :span="24">
         <el-card style="margin-top: 10px; margin-bottom: 10px">
 
           距结束还有：<span style="color: #ff0000;">{{ min }}分钟{{ sec }}秒</span>
-          <el-button  v-if="!showNext" style="float: right; margin-top: -10px" type="primary" icon="el-icon-plus" :loading="loading" @click="handHandExam()">
+          <el-button v-if="!showNext" style="float: right; margin-top: -10px" type="primary" icon="el-icon-plus" :loading="loading" @click="handHandExam()">
             {{ handleText }}
           </el-button>
 
@@ -385,7 +384,6 @@ export default {
       paperDetail(params).then(response => {
         // 试卷内容
         this.paperData = response.data
-
         // 获得第一题内容
         if (this.paperData.radioList) {
           this.cardItem = this.paperData.radioList[0]
@@ -414,7 +412,12 @@ export default {
         this.paperData.saqList.forEach(function(item) {
           that.allItem.push(item)
         })
-
+        // 顺序重构
+        that.allItem.forEach((k, v) => {
+          k.sort = v
+        })
+        //
+        this.cardItem = that.allItem[0]
         // 当前选定
         this.fetchQuData(this.cardItem)
 

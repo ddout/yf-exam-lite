@@ -7,11 +7,10 @@
   >
     <template slot="filter-content">
 
-
       <el-input v-model="listQuery.params.title" placeholder="搜索题目内容" style="width: 200px;" class="filter-item" />
 
       <el-button class="filter-item" style="float: right" type="primary" icon="el-icon-magic-stick" @click="startTrain">
-        错题训练
+        错题训练3
       </el-button>
 
     </template>
@@ -65,7 +64,6 @@ export default {
           title: ''
         }
       },
-
 
       options: {
 

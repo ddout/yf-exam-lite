@@ -149,8 +149,6 @@ export const asyncRoutes = [
         hidden: true
       },
 
-
-
       {
         path: 'exam/result/:id',
         component: () => import('@/views/paper/exam/result'),
@@ -159,18 +157,18 @@ export const asyncRoutes = [
         hidden: true
       },
 
-      {
-        path: 'tran',
-        component: () => import('@/views/user/book'),
-        name: 'ListTran',
-        meta: { title: '错题训练', noCache: true, icon: 'study' }
-      },
+      // {
+      //   path: 'tran',
+      //   component: () => import('@/views/user/book'),
+      //   name: 'ListTran',
+      //   meta: { title: '错题训练', noCache: true, icon: 'study' }
+      // },
 
       {
         path: 'tran/start',
         component: () => import('@/views/user/book/train'),
         name: 'StartTran',
-        meta: { title: '错题训练', noCache: true, activeMenu: '/online/tran' },
+        meta: { title: '错题训练2', noCache: true, activeMenu: '/online/tran' },
         hidden: true
       },
 
