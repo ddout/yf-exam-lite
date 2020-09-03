@@ -60,8 +60,12 @@
       <el-col :span="18" :xs="24">
 
         <el-card class="qu-content">
-          <p v-if="quData.content">{{ quData.sort + 1 }}.{{ quData.content }}</p>
-          <p v-if="quData.image"><img :src="quData.image"></p>
+          <p v-if="quData.content">题目{{ quData.sort + 1 }} </p>
+          <div style="margin-bottom:20px">
+            <Markdown :value="quData.content" :isPreview=true></Markdown>
+            <p v-if="quData.image"><img :src="quData.image"></p>
+          </div>
+           <p>选项：</p>
           <div v-if="quData.quType === 1 || quData.quType===3">
             <el-radio-group v-model="radioValue">
               <el-radio v-for="item in quData.answerList" :label="item.id">{{ item.abc }}.{{ item.content }} <div v-if="item.image" style="clear: both"><img :src="item.image"></div></el-radio>
@@ -115,10 +119,11 @@
 <script>
 import { paperDetail, quDetail, handExam, fillAnswer } from '@/api/paper/exam'
 import { Loading } from 'element-ui'
+import Markdown from 'vue-meditor'
 
 export default {
   name: 'ExamProcess',
-
+  components: { Markdown  },
   data() {
     return {
       // 全屏/不全屏

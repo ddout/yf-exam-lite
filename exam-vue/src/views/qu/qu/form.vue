@@ -25,7 +25,8 @@
         </el-form-item>
 
         <el-form-item label="题目内容" prop="content">
-          <el-input v-model="postForm.content" type="textarea" />
+          <!-- <el-input v-model="postForm.content" type="textarea" /> -->
+          <Markdown v-model="postForm.content" :value="postForm.content"></Markdown>
         </el-form-item>
 
 
@@ -102,10 +103,11 @@
 <script>
 import { fetchDetail, saveData } from '@/api/qu/qu'
 import RepoSelect from '@/components/RepoSelect'
+import Markdown from 'vue-meditor'
 
 export default {
   name: 'QuDetail',
-  components: { RepoSelect },
+  components: { RepoSelect, Markdown  },
   data() {
     return {
 
@@ -214,8 +216,9 @@ export default {
         if (!valid) {
           return
         }
-
+console.log(this.postForm)
         saveData(this.postForm).then(response => {
+
           this.postForm = response.data
           this.$notify({
             title: '成功',

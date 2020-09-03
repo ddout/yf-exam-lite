@@ -24,7 +24,10 @@
 
       <div v-for="item in paperData.quList" class="qu-content">
 
-        <p>{{ item.sort + 1 }}.{{ item.content }}（得分：{{ item.actualScore}}）</p>
+        <p>题目{{ item.sort + 1 }}.（得分：{{ item.actualScore}}）</p>
+        <div style="margin-bottom:20px">
+            <Markdown :value="item.content" :isPreview=true></Markdown>
+          </div>
         <div v-if="item.quType === 1 || item.quType===3">
           <el-radio-group v-model="radioValues[item.id]">
             <el-radio v-for="an in item.answerList" :label="an.id">{{ an.abc }}.{{ an.content }}</el-radio>
@@ -110,9 +113,12 @@
 <script>
 
 import { paperResult } from '@/api/paper/exam'
+import Markdown from 'vue-meditor'
+
 
 export default {
   name: 'AuctionGoodsDetail',
+  components: { Markdown  },
   data() {
     return {
       // 试卷ID
